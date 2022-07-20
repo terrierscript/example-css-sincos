@@ -2,10 +2,39 @@
   <head>
     <meta charset="UTF-8"> 
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      :root{
+        --size: 40px;
+      }
+      @keyframes rotate1 {
+        0% {
+          transform: translate(calc(sin(0deg) * var(--size)), calc(cos(0deg) * var(--size))); 
+        }
+        25% {
+          transform: translate(calc(sin(90deg) * var(--size)), calc(cos(90deg) * var(--size))); 
+        }
+        50% {
+          transform: translate(calc(sin(180deg) * var(--size)), calc(cos(180deg) * var(--size))); 
+        }
+        75% {
+          transform: translate(calc(sin(270deg) * var(--size)), calc(cos(270deg) * var(--size))); 
+        }
+        100% {
+          transform: translate(calc(sin(360deg) * var(--size)), calc(cos(360deg) * var(--size))); 
+        }
+      }
+      .rotate1{
+        animation: 2s linear rotate1 infinite;
+      }
+    </style>
   </head>
   <body>
-    <div class="flex content-center">
-      🐶
+    <div class="grid place-content-center h-screen ">
+      <div class="text-6xl ">
+        <div class="rotate1 bg-red-500"> 
+          🐶
+        </div>
+      </div>
     </div>
   </body>
 </html>
