@@ -5,34 +5,133 @@
     <style>
       :root{
         --size: 40px;
+        --speed: 3s;
       }
       @keyframes rotate1 {
         0% {
-          transform: translate(calc(sin(0deg) * var(--size)), calc(cos(0deg) * var(--size))); 
-        }
-        25% {
-          transform: translate(calc(sin(90deg) * var(--size)), calc(cos(90deg) * var(--size))); 
-        }
-        50% {
-          transform: translate(calc(sin(180deg) * var(--size)), calc(cos(180deg) * var(--size))); 
-        }
-        75% {
-          transform: translate(calc(sin(270deg) * var(--size)), calc(cos(270deg) * var(--size))); 
+          /* transform: translateX(var(--size)); */
+        /* transform: rotate(0deg); */
+          transform: rotate(0deg);
         }
         100% {
-          transform: translate(calc(sin(360deg) * var(--size)), calc(cos(360deg) * var(--size))); 
+          transform: rotate(360deg);
         }
       }
       .rotate1{
-        animation: 2s linear rotate1 infinite;
+        /* transform: translateX(40px); */
+        animation: var(--speed) linear rotate1 infinite;
+
+      }
+      @keyframes stretch {
+        0% { transform:   translateX(calc(2 * 30px));}
+        20% { transform:  translateX(calc(2 * 20px));}
+        30% { transform:  translateX(calc(2 * 10px));}
+        40% { transform:  translateX(calc(2 * 40px));}
+        50% { transform:  translateX(calc(2 * 50px));}
+        60% { transform:  translateX(calc(2 * 30px));}
+        70% { transform:  translateX(calc(2 * 10px));}
+        80% { transform:  translateX(calc(2 * 40px));}
+        90% { transform:  translateX(calc(2 * 10px));}
+        100% { transform: translateX(calc(2 * 30px));}
+      }
+      .nobinobi{
+        position: absolute;
+        animation: var(--speed) linear stretch infinite;
+        background-color: white;
+        border: red 30px solid;
+        border-radius: 100%;
+        font-size: 40px;
+        width:  160px;
+        height: 160px;
+        display: grid;
+        place-items: center;
+      }
+      :root{
+        --span: -0.4s;
+        /* --span: -0; */
+      }
+      .delay-1 div{
+        animation-delay: calc(var(--span) * 1);
+      }
+      .delay-2 div{
+        animation-delay: calc(var(--span) * 2);
+      }
+      .delay-3 div{
+        animation-delay: calc(var(--span)  * 3)
+      }
+      .delay-4 div {
+        animation-delay: calc(var(--span)  * 4)
+      }
+      .delay-5 div{
+        animation-delay: calc(var(--span)  * 5)
+      }
+      .delay-6 div{
+        animation-delay: calc(var(--span) *  6)
+      }
+      .delay-7 div {
+        animation-delay: calc(var(--span)  * 7)
       }
     </style>
   </head>
   <body>
-    <div class="grid place-content-center h-screen ">
-      <div class="text-6xl ">
-        <div class="rotate1 bg-red-500"> 
-          🐶
+    <div class="grid place-content-center h-screen w-screen bg-blue-600" >
+      <div class="">
+        <div class="text-4xl">
+          👄
+        </div>
+        <div class="rotate1"> 
+          <div class="nobinobi">
+            🔵
+          </div>
+        </div>
+        <div class="delay-1"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-2"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-3"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-4"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-5"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-6"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
+        </div>
+        <div class="delay-7"> 
+          <div class="rotate1"> 
+            <div class="nobinobi ">
+              🔵
+            </div>
+          </div>
         </div>
       </div>
     </div>
