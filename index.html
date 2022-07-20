@@ -5,134 +5,80 @@
     <style>
       :root{
         --size: 40px;
-        --speed: 3s;
+        --speed: 5s;
       }
       @keyframes rotate1 {
-        0% {
-          /* transform: translateX(var(--size)); */
-        /* transform: rotate(0deg); */
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes stretch1 {
+        0% { transform:   translateX(calc(3 * 30px));}
+        20% { transform:  translateX(calc(3 * 20px));}
+        30% { transform:  translateX(calc(3 * 40px));}
+        40% { transform:  translateX(calc(3 * 10px));}
+        50% { transform:  translateX(calc(3 * 50px));}
+        60% { transform:  translateX(calc(3 * 30px));}
+        70% { transform:  translateX(calc(3 * 20px));}
+        80% { transform:  translateX(calc(3 * 10px));}
+        90% { transform:  translateX(calc(3 * 50px));}
+        100% { transform: translateX(calc(3 * 30px));}
       }
       .rotate1{
-        /* transform: translateX(40px); */
-        animation: var(--speed) linear rotate1 infinite;
-
+        animation: var(--speed) linear rotate1 infinite;        
       }
-      @keyframes stretch {
-        0% { transform:   translateX(calc(2 * 30px));}
-        20% { transform:  translateX(calc(2 * 20px));}
-        30% { transform:  translateX(calc(2 * 10px));}
-        40% { transform:  translateX(calc(2 * 40px));}
-        50% { transform:  translateX(calc(2 * 50px));}
-        60% { transform:  translateX(calc(2 * 30px));}
-        70% { transform:  translateX(calc(2 * 10px));}
-        80% { transform:  translateX(calc(2 * 40px));}
-        90% { transform:  translateX(calc(2 * 10px));}
-        100% { transform: translateX(calc(2 * 30px));}
-      }
-      .nobinobi{
+      .stretching{
         position: absolute;
-        animation: var(--speed) linear stretch infinite;
-        background-color: white;
-        border: red 30px solid;
+        animation: var(--speed) linear stretch1 infinite;
         border-radius: 100%;
-        font-size: 40px;
         width:  160px;
         height: 160px;
         display: grid;
         place-items: center;
+        background-color: red;
+        
       }
-      :root{
-        --span: -0.4s;
-        /* --span: -0; */
+      .stretching.eye{
+        font-size: 40px;
+        border: red 30px solid;
+        background-color: white;
       }
-      .delay-1 div{
-        animation-delay: calc(var(--span) * 1);
+      .stretching.eye::after{
+        content: "🔵"
       }
-      .delay-2 div{
-        animation-delay: calc(var(--span) * 2);
-      }
-      .delay-3 div{
-        animation-delay: calc(var(--span)  * 3)
-      }
-      .delay-4 div {
-        animation-delay: calc(var(--span)  * 4)
-      }
-      .delay-5 div{
-        animation-delay: calc(var(--span)  * 5)
-      }
-      .delay-6 div{
-        animation-delay: calc(var(--span) *  6)
-      }
-      .delay-7 div {
-        animation-delay: calc(var(--span)  * 7)
-      }
+      :root{ --span: calc(var(--speed)/12 * -1); }
+      .delay-1 div { animation-delay: calc(var(--span) * 1)}
+      .delay-2 div { animation-delay: calc(var(--span) * 2)}
+      .delay-3 div { animation-delay: calc(var(--span) * 3)}
+      .delay-4 div { animation-delay: calc(var(--span) * 4)}
+      .delay-5 div { animation-delay: calc(var(--span) * 5)}
+      .delay-6 div { animation-delay: calc(var(--span) * 6)}
+      .delay-7 div { animation-delay: calc(var(--span) * 7)}
+      .delay-8 div { animation-delay: calc(var(--span) * 8)}
+      .delay-9 div { animation-delay: calc(var(--span) * 9)}
+      .delay-10 div { animation-delay: calc(var(--span) * 10)}
+      .delay-11 div { animation-delay: calc(var(--span) * 11)}
+      .delay-12 div { animation-delay: calc(var(--span) * 12)}
+
     </style>
   </head>
   <body>
-    <div class="grid place-content-center h-screen w-screen bg-blue-600" >
-      <div class="">
-        <div class="text-4xl">
+    <div class="grid place-content-center place-items-center h-screen w-screen bg-blue-600" >
+      <div class=" ">
+        <div class="text-6xl h-10">
           👄
         </div>
-        <div class="rotate1"> 
-          <div class="nobinobi">
-            🔵
-          </div>
-        </div>
-        <div class="delay-1"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-2"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-3"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-4"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-5"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-6"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
-        <div class="delay-7"> 
-          <div class="rotate1"> 
-            <div class="nobinobi ">
-              🔵
-            </div>
-          </div>
-        </div>
+        <div class="delay-1"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-2"><div class="rotate1"><div class="stretching eye"></div></div></div>
+        <div class="delay-3"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-4"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-5"><div class="rotate1"><div class="stretching eye"></div></div></div>
+        <div class="delay-6"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-7"><div class="rotate1"><div class="stretching eye"></div></div></div>
+        <div class="delay-8"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-9"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-10"><div class="rotate1"><div class="stretching eye"></div></div></div>
+        <div class="delay-11"><div class="rotate1"><div class="stretching"></div></div></div>
+        <div class="delay-12"><div class="rotate1"><div class="stretching eye"></div></div></div>
       </div>
     </div>
   </body>
