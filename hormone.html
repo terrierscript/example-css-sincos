@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      :root{
+        --size: 40px;
+        --speed: 4s;
+      }
+      body{
+        background-color: transparent;
+        transform: translateZ(100vmax);
+        perspective: 800px;
+      }
+      * {
+        transform-style: preserve-3d;
+      }
+      @keyframes rotate-y {
+        0% { transform: rotate3d(0,1,0, 0deg); }
+        100% { transform: rotate3d(0,1,0,-360deg); }
+      }
+      .rotate-bottom .rotate1{
+        animation: var(--speed) linear rotate-y infinite;
+      }
+      .rotate-bottom .rotate2{
+        position: absolute;
+        animation: var(--speed) linear rotate-y infinite reverse;
+        width:  200px;
+        height: 200px;
+        display: grid;
+        place-items: center;
+        font-size: 0px;
+      }
+      .rotate2::after{
+        position: absolute;
+        font-size: 10vmin;
+        content: "🐥"
+      }
+      .center-item{
+        font-size: 100px;
+      }
+      :root{ --span: calc(var(--speed)/4 * -1); }
+      .delay-debug div { 
+        animation-delay: 0;
+        animation-play-state: paused;
+      }
+      .rotate-bottom .delay-1 div { animation-delay: calc(var(--span) * 1)}
+      .rotate-bottom .delay-2 div { animation-delay: calc(var(--span) * 2)}
+      .rotate-bottom .delay-3 div { animation-delay: calc(var(--span) * 3)}
+      .rotate-bottom .delay-4 div { animation-delay: calc(var(--span) * 4)}
+      /* .delay-5 div { animation-delay: calc(var(--span) * 5)}
+      .delay-6 div { animation-delay: calc(var(--span) * 6)}
+      .delay-7 div { animation-delay: calc(var(--span) * 7)}
+      .delay-8 div { animation-delay: calc(var(--span) * 8)}
+      .delay-9 div { animation-delay: calc(var(--span) * 9)}
+      .delay-10 div { animation-delay: calc(var(--span) * 10)}
+      .delay-11 div { animation-delay: calc(var(--span) * 11)}
+      .delay-12 div { animation-delay: calc(var(--span) * 12)} */
+
+      .center-rotate{
+        font-size: 10vmin;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid place-content-center place-items-center h-screen w-screen relative" >
+        <div class="grid place-content-center place-items-center absolute h-screen w-screen">
+          <div class="grid place-content-center place-items-center h-screen w-screen absolute" >
+            <div class="center-rotate">
+              🐣
+            </div>
+          </div>
+          <div class="grid place-content-center place-items-center h-screen w-screen absolute " >
+            <div class="rotate-bottom">
+              <div class="delay-1"><div class="rotate1"><div class="rotate2"></div></div></div>
+              <div class="delay-2"><div class="rotate1"><div class="rotate2"></div></div></div>
+              <div class="delay-3"><div class="rotate1"><div class="rotate2"></div></div></div>
+              <div class="delay-4"><div class="rotate1"><div class="rotate2"></div></div></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
