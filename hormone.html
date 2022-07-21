@@ -11,6 +11,8 @@
         background-color: transparent;
         transform: translateZ(100vmax);
         perspective: 800px;
+        font-size: 10vmin;
+        
       }
       * {
         transform-style: preserve-3d;
@@ -19,64 +21,111 @@
         0% { transform: rotate3d(0,1,0, 0deg); }
         100% { transform: rotate3d(0,1,0,-360deg); }
       }
-      .rotate-bottom .rotate1{
+      
+      .rotate-bottom-1{
         animation: var(--speed) linear rotate-y infinite;
+        animation-delay:inherit;
       }
-      .rotate-bottom .rotate2{
+      .rotate-bottom-2{
         position: absolute;
         animation: var(--speed) linear rotate-y infinite reverse;
+        animation-delay:inherit;
         width:  200px;
         height: 200px;
         display: grid;
         place-items: center;
         font-size: 0px;
-      }
-      .rotate2::after{
-        position: absolute;
         font-size: 10vmin;
-        content: "🐥"
       }
+    
       .center-item{
         font-size: 100px;
       }
-      :root{ --span: calc(var(--speed)/4 * -1); }
+      .rotate-bottom{ --delay-span: calc(var(--speed)/4 * -1); }
       .delay-debug div { 
         animation-delay: 0;
         animation-play-state: paused;
       }
-      .rotate-bottom .delay-1 div { animation-delay: calc(var(--span) * 1)}
-      .rotate-bottom .delay-2 div { animation-delay: calc(var(--span) * 2)}
-      .rotate-bottom .delay-3 div { animation-delay: calc(var(--span) * 3)}
-      .rotate-bottom .delay-4 div { animation-delay: calc(var(--span) * 4)}
-      /* .delay-5 div { animation-delay: calc(var(--span) * 5)}
-      .delay-6 div { animation-delay: calc(var(--span) * 6)}
-      .delay-7 div { animation-delay: calc(var(--span) * 7)}
-      .delay-8 div { animation-delay: calc(var(--span) * 8)}
-      .delay-9 div { animation-delay: calc(var(--span) * 9)}
-      .delay-10 div { animation-delay: calc(var(--span) * 10)}
-      .delay-11 div { animation-delay: calc(var(--span) * 11)}
-      .delay-12 div { animation-delay: calc(var(--span) * 12)} */
+      .delay-1 div { animation-delay: calc(var(--delay-span) * 1)  }
+      .delay-2 div { animation-delay: calc(var(--delay-span) * 2)  }
+      .delay-3 div { animation-delay: calc(var(--delay-span) * 3)  }
+      .delay-4 div { animation-delay: calc(var(--delay-span) * 4)  }
+      .delay-5 div { animation-delay: calc(var(--delay-span) * 5)}
+      .delay-6 div { animation-delay: calc(var(--delay-span) * 6)}
+      .delay-7 div { animation-delay: calc(var(--delay-span) * 7)}
+      .delay-8 div { animation-delay: calc(var(--delay-span) * 8)}
+      .delay-9 div { animation-delay: calc(var(--delay-span) * 9)}
+      .delay-10 div { animation-delay: calc(var(--delay-span) * 10)}
+      .delay-11 div { animation-delay: calc(var(--delay-span) * 11)}
+      .delay-12 div { animation-delay: calc(var(--delay-span) * 12)}
 
-      .center-rotate{
-        font-size: 10vmin;
 
+      .center-item{
+        font-size: 20vmin;
+        animation: var(--speed) linear rotate-y infinite reverse;
       }
+      .bg-rotate{
+        transform: translateZ(-2vmin);
+        /* translateY(-10vmin);
+        */
+        /* display: grid;
+        place-items:center;  */
+      }
+      @keyframes rotate-z {
+        0% { transform: rotate3d(0, 0,1, 0deg); }
+        100% { transform: rotate3d(0,0,1,-360deg); }
+      }
+      .bg-rotate{ --delay-span: calc(var(--speed)/8 * -1); }
+      .bg-rotate > div{
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        top: -30vmin;
+      }
+      
+      .bg-item{
+        animation: var(--speed) linear rotate-z infinite reverse;
+        height: 60vmin;
+      }
+
+      /* .bg-rotate .delay-1 div { animation-delay: calc(var(--span) * 1)  }
+      .bg-rotate .delay-2 div { animation-delay: calc(var(--span) * 2)  }
+      .bg-rotate .delay-3 div { animation-delay: calc(var(--span) * 3)  }
+      .bg-rotate .delay-4 div { animation-delay: calc(var(--span) * 4)  } */
+
+      /* .bg-rotate .item1{transform: rotate(0deg);} */
+      /* .bg-rotate .item2{transform: rotate(60deg);}
+      .bg-rotate .item3{transform: rotate(80deg);} */
     </style>
   </head>
   <body>
     <div class="grid place-content-center place-items-center h-screen w-screen relative" >
-        <div class="grid place-content-center place-items-center absolute h-screen w-screen">
+      <div class="grid place-content-center place-items-center absolute h-screen w-screen">
           <div class="grid place-content-center place-items-center h-screen w-screen absolute" >
+            <div class="bg-rotate">
+              <div class="delay-1"><div class="bg-item">🐥</div></div>
+              <div class="delay-2"><div class="bg-item">🐥</div></div>
+              <div class="delay-3"><div class="bg-item">🐥</div></div>
+              <div class="delay-4"><div class="bg-item">🐥</div></div>
+              <div class="delay-5"><div class="bg-item">🐥</div></div>
+              <div class="delay-6"><div class="bg-item">🐥</div></div>
+              <div class="delay-7"><div class="bg-item">🐥</div></div>
+              <div class="delay-8"><div class="bg-item">🐥</div></div>
+              <!-- <div class="item2">🙏</div>
+              <div class="item3">🙏</div> -->
+            </div>
+          </div>
+            <div class="grid place-content-center place-items-center h-screen w-screen absolute" >
             <div class="center-rotate">
               🐣
             </div>
           </div>
           <div class="grid place-content-center place-items-center h-screen w-screen absolute " >
             <div class="rotate-bottom">
-              <div class="delay-1"><div class="rotate1"><div class="rotate2"></div></div></div>
-              <div class="delay-2"><div class="rotate1"><div class="rotate2"></div></div></div>
-              <div class="delay-3"><div class="rotate1"><div class="rotate2"></div></div></div>
-              <div class="delay-4"><div class="rotate1"><div class="rotate2"></div></div></div>
+              <div class="delay-1"><div class="rotate-bottom-1"><div class="rotate-bottom-2">🐥</div></div></div>
+              <div class="delay-2"><div class="rotate-bottom-1"><div class="rotate-bottom-2">🐥</div></div></div>
+              <div class="delay-3"><div class="rotate-bottom-1"><div class="rotate-bottom-2">🐥</div></div></div>
+              <div class="delay-4"><div class="rotate-bottom-1"><div class="rotate-bottom-2">🐥</div></div></div>
             </div>
           </div>
       </div>

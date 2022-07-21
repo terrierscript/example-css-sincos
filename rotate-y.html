@@ -16,17 +16,17 @@
         transform-style: preserve-3d;
       }
       @keyframes rotate-y {
-        0% { transform: rotate3d(0,1,0, 0deg); }
-        100% { transform: rotate3d(0,1,0,-360deg); }
+        0% { transform:   translateY(-12vmin) rotate3d(0,1,0, 0deg); }
+        100% { transform: translateY(-12vmin) rotate3d(0,1,0,-360deg); }
       }
-    .rotate1{
+      .rotate1{
         animation: var(--speed) linear rotate-y infinite;
       }
-    .rotate2{
+      .rotate2{
         position: absolute;
         animation: var(--speed) linear rotate-y infinite reverse;
         width:  200px;
-        height: 200px;
+        /* height: 200px; */
         display: grid;
         place-items: center;
         font-size: 0px;
@@ -36,10 +36,20 @@
         font-size: 10vmin;
         content: "🐥"
       }
-      .center-item{
-        font-size: 100px;
+      @keyframes yurayura {
+        0% { transform:   rotate3d(1,0,1,0deg)    }
+        25% { transform:  rotate3d(1,0,1,-10deg)    }
+        75% { transform:  rotate3d(1,0,1, 10deg)    }
+        100% { transform: rotate3d(1,0,1,0deg)  }
       }
-      :root{ --span: calc(var(--speed)/8 * -1); }
+      .center-item{
+        animation: calc(var(--speed)/8) linear yurayura infinite;
+        font-size: 35vmin;
+        margin-top: 25vmin;
+        padding-bottom: 30vmin;
+        /* background-color: red; */
+      }
+      :root{ --span: calc(var(--speed)/6 * -1); }
       .delay-debug div { 
         animation-delay: 0;
         animation-play-state: paused;
@@ -56,19 +66,14 @@
       .delay-10 div { animation-delay: calc(var(--span) * 10)}
       .delay-11 div { animation-delay: calc(var(--span) * 11)}
       .delay-12 div { animation-delay: calc(var(--span) * 12)} 
-
-      .center-rotate{
-        font-size: 10vmin;
-
-      }
     </style>
   </head>
   <body>
     <div class="grid place-content-center place-items-center h-screen w-screen relative" >
         <div class="grid place-content-center place-items-center absolute h-screen w-screen">
           <div class="grid place-content-center place-items-center h-screen w-screen absolute" >
-            <div class="center-rotate">
-              🐣
+            <div class="center-item">
+              👴
             </div>
           </div>
           <div class="grid place-content-center place-items-center h-screen w-screen absolute " >
